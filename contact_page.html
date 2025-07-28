@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Korawut Portfolio</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #4acfee 100%);
+      overflow: auto;
+      height: fit-content;
+      min-height: 100vh;
+    }
+
+/*.back-vid {
+      display: none;
+    }*/
+
+    .main-section {
+      height: fit-content;
+      min-height: 90vh;
+      padding-bottom: 50px;
+    }
+
+    .contact-container {
+      padding: 20px 40px;
+      color: white;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .contact-header h1 {
+      font-size: 60px;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
+      background-size: 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: animate-gradient 2.5s linear infinite;
+    }
+
+    .contact-header p {
+      font-size: 20px;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+      margin-bottom: 50px;
+    }
+
+    .contact-info {
+      background-color: #4ad0ee1b;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 2px 2px 10px 1px rgba(74, 207, 238, 0.3);
+      padding: 40px;
+      border: 2px solid transparent;
+      transition: 0.3s;
+    }
+
+    .contact-info:hover {
+      border-color: #4acfee;
+      box-shadow: 0 0 25px rgba(74, 207, 238, 0.5);
+    }
+
+    .contact-info h2 {
+      font-size: 30px;
+      margin-bottom: 30px;
+      background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
+      background-size: 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: animate-gradient 2.5s linear infinite;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+      gap: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .contact-item:hover {
+      background-color: rgba(74, 207, 238, 0.1);
+    }
+
+    .contact-item i {
+      font-size: 35px;
+      color: #4acfee;
+      min-width: 40px;
+    }
+
+    .contact-item div h4 {
+      font-size: 18px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .contact-item div p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .contact-form {
+      background-color: #4ad0ee1b;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 2px 2px 10px 1px rgba(74, 207, 238, 0.3);
+      padding: 40px;
+      border: 2px solid transparent;
+      transition: 0.3s;
+    }
+
+    .contact-form:hover {
+      border-color: #4acfee;
+      box-shadow: 0 0 25px rgba(74, 207, 238, 0.5);
+    }
+
+    .contact-form h2 {
+      font-size: 30px;
+      margin-bottom: 30px;
+      background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
+      background-size: 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: animate-gradient 2.5s linear infinite;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #4acfee;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid rgba(74, 207, 238, 0.3);
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #4acfee;
+      box-shadow: 0 0 15px rgba(74, 207, 238, 0.3);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px 30px;
+      background-color: #4acfee;
+      border: 2px solid #4acfee;
+      border-radius: 40px;
+      box-shadow: 0 0 10px #4acfee;
+      font-size: 16px;
+      font-weight: 900;
+      color: #0e1217;
+      cursor: pointer;
+      transition: 0.3s;
+      text-transform: uppercase;
+    }
+
+    .submit-btn:hover {
+      background-color: transparent;
+      box-shadow: none;
+      color: #4acfee;
+    }
+
+    .social-section {
+      background-color: #4ad0ee1b;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 2px 2px 10px 1px rgba(74, 207, 238, 0.3);
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 40px;
+      border: 2px solid transparent;
+      transition: 0.3s;
+    }
+
+    .social-section:hover {
+      border-color: #4acfee;
+      box-shadow: 0 0 25px rgba(74, 207, 238, 0.5);
+    }
+
+    .social-section h2 {
+      font-size: 30px;
+      margin-bottom: 30px;
+      background: linear-gradient(to right, #4acfee, #53f8c9, #6070fd, #5bbdff, #4acfee);
+      background-size: 200%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: animate-gradient 2.5s linear infinite;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border: 2px solid #4acfee;
+      border-radius: 50%;
+      font-size: 25px;
+      color: #4acfee;
+      text-decoration: none;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-link:hover {
+      background: #4acfee;
+      color: #0e1217;
+      box-shadow: 0 0 20px #4acfee;
+      transform: translateY(-5px);
+    }
+
+    .back-btn {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #4acfee;
+      border: 2px solid #4acfee;
+      border-radius: 40px;
+      box-shadow: 0 0 10px #4acfee;
+      font-size: 16px;
+      font-weight: 900;
+      color: #0e1217;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px auto;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .back-btn:hover {
+      background-color: transparent;
+      box-shadow: none;
+      color: #4acfee;
+    }
+
+    @media (max-width: 980px) {
+      .contact-header h1 {
+        font-size: 40px;
+      }
+      
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .contact-info,
+      .contact-form,
+      .social-section {
+        padding: 30px 20px;
+      }
+      
+      .social-links {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .contact-header h1 {
+        font-size: 35px;
+      }
+      
+      .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+      
+      .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <video autoplay loop muted plays-inline class="back-vid">
+    <source src="images/galaxy.mp4" type="video/mp4">
+  </video>
+  
+  <section class="main-section">
+    <nav>
+      <h1 data-aos="zoom-in" data-aos-duration="1000"><span style="color: #4acfee;">Aod</span>Korawut</h1>
+      <ul>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></li>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="about_page.html">About</a></li>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="projects_page.html">Projects</a></li>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"><a href="skills_page.html">Skills</a></li>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="certificates_page.html">Certificates</a></li>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a class="active" href="contact_page.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="contact-container">
+      <div class="contact-header" data-aos="fade-down" data-aos-duration="1000">
+        <h1>Get In Touch</h1>
+        <p>Ready to collaborate? Let's discuss your data analysis needs and create something amazing together</p>
+      </div>
+
+      <div class="contact-content">
+        <div class="contact-info" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+          <h2>Contact Information</h2>
+          
+          <div class="contact-item">
+            <i class='bx bx-map'></i>
+            <div>
+              <h4>Location</h4>
+              <p>Mueang Chon Buri, Thailand</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class='bx bx-phone'></i>
+            <div>
+              <h4>Phone</h4>
+              <p>+66 89-750-0031</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class='bx bx-envelope'></i>
+            <div>
+              <h4>Email</h4>
+              <p>aodzanarak17@hotmail.com</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class='bx bx-time'></i>
+            <div>
+              <h4>Working Hours</h4>
+              <p>Mon - Fri: 9AM - 6PM</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class='bx bx-briefcase'></i>
+            <div>
+              <h4>Availability</h4>
+              <p>Open for new opportunities</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+          <h2>Send Message</h2>
+          <form>
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Enter message subject" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="social-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+        <h2>Connect With Me</h2>
+        <div class="social-links">
+          <a href="https://github.com/aodzanarak17" target="_blank" class="social-link">
+            <i class='bx bxl-github'></i>
+          </a>
+          <a href="https://facebook.com/aodzanarak17" target="_blank" class="social-link">
+            <i class='bx bxl-facebook-circle'></i>
+          </a>
+          <a href="#" target="_blank" class="social-link">
+            <i class='bx bxl-twitter'></i>
+          </a>
+          <a href="#" target="_blank" class="social-link">
+            <i class='bx bxl-linkedin'></i>
+          </a>
+          <a href="#" target="_blank" class="social-link">
+            <i class='bx bxl-instagram'></i>
+          </a>
+          <a href="#" target="_blank" class="social-link">
+            <i class='bx bxl-youtube'></i>
+          </a>
+        </div>
+      </div>
+
+      <a href="index.html" class="back-btn" data-aos="fade-up" data-aos-duration="1000">
+        <i class='bx bx-arrow-back'></i>
+        Back to Home
+      </a>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
