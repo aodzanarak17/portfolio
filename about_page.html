@@ -5,13 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - Korawut Portfolio</title>
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"> 
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <style>
-
-   
-        
-        
     /* Additional styles for About page */
     body {
       /*background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4acfee 100%);*/
@@ -245,14 +241,14 @@
     <source src="images/galaxy.mp4" type="video/mp4">
   </video>
 
-  
-
-  
   <section class="main-section">
     <nav>
-      <h1 data-aos="zoom-in" data-aos-duration="1000"><span style="color: #4acfee;">Aod</span>Korawut</h1>
-      <ul>
-        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></li>
+       <h1 data-aos="zoom-in" data-aos-duration="1000"><span style="color: #4acfee;">Aod</span>Korawut</h1>
+      <div id="menu-icon">
+                <i class='bx bx-menu'></i>
+            </div>
+      
+      <ul class="navbar"> <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a class="active" href="about_page.html">About</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="projects_page.html">Projects</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"><a href="skills_page.html">Skills</a></li>
@@ -281,11 +277,7 @@
       </div>
 
       <div class="skills-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-        
-   
-</div>
-
-        
+        <h2>What I Do</h2>
         <div class="skills-grid">
           <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="700">
             <i class='bx bx-data'></i>
@@ -330,6 +322,15 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
+
+    // Hamburger menu functionality
+    const menuIcon = document.getElementById('menu-icon');
+    const navbar = document.querySelector('.navbar');
+
+    menuIcon.onclick = () => {
+        menuIcon.classList.toggle('bx-x'); // Toggle between menu and close icon
+        navbar.classList.toggle('active'); // Toggle active class for navbar
+    };
   </script>
 </body>
 </html>
