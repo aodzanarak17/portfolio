@@ -5,15 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skills - Korawut Portfolio</title>
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="style.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css"> <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <style>
+    /* CSS เฉพาะสำหรับหน้านี้ */
     body {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #4acfee 100%);
       overflow: auto;
       height: fit-content;
       min-height: 100vh;
     }
+
+    /*.back-vid {
+      display: none; /* คุณสามารถเปิดใช้งานส่วนนี้ได้ หากต้องการซ่อนวิดีโอพื้นหลังในหน้านี้ */
+     */
 
     .main-section {
       height: fit-content;
@@ -213,8 +217,10 @@
   <section class="main-section">
     <nav>
       <h1 data-aos="zoom-in" data-aos-duration="1000"><span style="color: #4acfee;">Aod</span>Korawut</h1>
-      <ul>
-        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></li>
+      <div id="menu-icon">
+                <i class='bx bx-menu'></i>
+            </div>
+      <ul class="navbar"> <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="about_page.html">About</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="projects_page.html">Projects</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"><a class="active" href="#">Skills</a></li>
@@ -230,7 +236,6 @@
       </div>
 
       <div class="skills-categories">
-        <!-- Programming Languages -->
         <div class="category-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
           <div class="category-header">
             <i class='bx bx-code-alt'></i>
@@ -272,7 +277,6 @@
           </div>
         </div>
 
-        <!-- Data Analysis Tools -->
         <div class="category-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
           <div class="category-header">
             <i class='bx bx-bar-chart-alt-2'></i>
@@ -314,7 +318,6 @@
           </div>
         </div>
 
-        <!-- Data Visualization -->
         <div class="category-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
           <div class="category-header">
             <i class='bx bx-pie-chart-alt-2'></i>
@@ -364,7 +367,6 @@
           </div>
         </div>
 
-        <!-- Database & Big Data -->
         <div class="category-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
           <div class="category-header">
             <i class='bx bx-data'></i>
@@ -406,7 +408,6 @@
           </div>
         </div>
 
-        <!-- Machine Learning -->
         <div class="category-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
           <div class="category-header">
             <i class='bx bx-brain'></i>
@@ -459,6 +460,15 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
+ 
+    // Hamburger menu functionality
+    const menuIcon = document.getElementById('menu-icon');
+    const navbar = document.querySelector('.navbar');
+
+    menuIcon.onclick = () => {
+        menuIcon.classList.toggle('bx-x'); // Toggle between menu and close icon
+        navbar.classList.toggle('active'); // Toggle active class for navbar
+    };
   </script>
 </body>
 </html>
