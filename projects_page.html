@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects - Korawut Portfolio</title>
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="style.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css"> <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <style>
+    /* CSS เฉพาะสำหรับหน้านี้ */
     body {
       background: linear-gradient(135deg, #2d1b69 0%, #11998e 50%, #4acfee 100%);
       overflow: auto;
@@ -16,8 +16,8 @@
     }
 
     /*.back-vid {
-      display: none;
-    } */
+      display: none; /* คุณสามารถเปิดใช้งานส่วนนี้ได้ หากต้องการซ่อนวิดีโอพื้นหลังในหน้านี้ */
+     */
 
     .main-section {
       height: fit-content;
@@ -69,7 +69,7 @@
       transition: 0.3s;
       border: 2px solid transparent;
       position: relative;
-      overflow: hidden;
+      overflow: auto;
     }
 
     .project-card:hover {
@@ -206,6 +206,15 @@
       .project-card {
         padding: 20px;
       }
+
+      .project-links {
+        flex-direction: column; /* จัดปุ่มลิงก์เป็นแนวตั้งบนหน้าจอเล็ก */
+        gap: 10px;
+      }
+      .project-link {
+        width: 100%; /* ให้ปุ่มเต็มความกว้าง */
+        justify-content: center; /* จัดเนื้อหาปุ่มให้อยู่ตรงกลาง */
+      }
     }
   </style>
 </head>
@@ -217,13 +226,15 @@
   <section class="main-section">
     <nav>
       <h1 data-aos="zoom-in" data-aos-duration="1000"><span style="color: #4acfee;">Aod</span>Korawut</h1>
-      <ul>
-        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></li>
+      <div id="menu-icon">
+          <i class='bx bx-menu'></i>
+      </div>
+      <ul class="navbar"> <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="about_page.html">About</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a class="active" href="projects_page.html">Projects</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"><a href="skills_page.html">Skills</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="certificates_page.html">Certificates</a></li>
-        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="contact_page.html">Content</a></li>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="contact_page.html">Contact</a></li>
       </ul>
     </nav>
 
@@ -389,6 +400,23 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
+ 
+    // Hamburger menu functionality
+    const menuIcon = document.getElementById('menu-icon');
+    const navbar = document.querySelector('.navbar'); // ต้องแน่ใจว่าเลือก class "navbar"
+
+    menuIcon.onclick = () => {
+        menuIcon.classList.toggle('bx-x'); // Toggle between menu and close icon
+        navbar.classList.toggle('active'); // Toggle active class for navbar
+    };
+
+    // หากมีโค้ด window.onscroll = () => { ... } ที่อาจทำให้เมนูปิดเองเมื่อ Scroll ใน mobile
+    // ให้พิจารณาว่าจำเป็นหรือไม่ ถ้าไม่จำเป็นให้ลบออกหรือคอมเมนต์ไว้
+    // ตัวอย่าง:
+    // window.onscroll = () => {
+    //     menuIcon.classList.remove('bx-x');
+    //     navbar.classList.remove('active');
+    // };
   </script>
 </body>
 </html>
