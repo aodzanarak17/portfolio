@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Korawut Portfolio</title>
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="style.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css"> <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <style>
+    /* Global styles for body and main-section - ensure consistency with style.css if possible */
     body {
       background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #4acfee 100%);
-      overflow: auto;
+      overflow-x: hidden; /* Changed to hidden to prevent horizontal scroll */
       height: fit-content;
       min-height: 100vh;
     }
 
-/*.back-vid {
-      display: none;
-    }*/
+    /*.back-vid {
+      display: none; /* Uncomment if you want to hide video background on this page */
+     */
 
     .main-section {
       height: fit-content;
@@ -254,7 +254,7 @@
       text-decoration: none;
       transition: 0.3s;
       position: relative;
-      overflow: hidden;
+      overflow: hidden; /* Changed from auto to hidden for consistent behavior */
     }
 
     .social-link:hover {
@@ -292,13 +292,14 @@
       color: #4acfee;
     }
 
+    /* Responsive Design */
     @media (max-width: 980px) {
       .contact-header h1 {
         font-size: 40px;
       }
       
       .contact-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
         gap: 30px;
       }
       
@@ -319,7 +320,7 @@
       }
       
       .contact-item {
-        flex-direction: column;
+        flex-direction: column; /* Stack contact items vertically */
         text-align: center;
         gap: 10px;
       }
@@ -340,13 +341,15 @@
   <section class="main-section">
     <nav>
       <h1 data-aos="zoom-in" data-aos-duration="1000"><span style="color: #4acfee;">Aod</span>Korawut</h1>
-      <ul>
-        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></li>
+      <div id="menu-icon">
+                <i class='bx bx-menu'></i>
+            </div>
+      <ul class="navbar"> <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="about_page.html">About</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="projects_page.html">Projects</a></li>
         <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"><a href="skills_page.html">Skills</a></li>
-        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="certificates_page.html">Certificates</a></li>
-        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a class="active" href="contact_page.html">Contact</a></li>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="certificates_page.html">Certificates</a></li>
+        <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"><a class="active" href="contact_page.html">Contact</a></li>
       </ul>
     </nav>
 
@@ -447,7 +450,7 @@
           <a href="#" target="_blank" class="social-link">
             <i class='bx bxl-instagram'></i>
           </a>
-          <a href="#" target="_blank" class="social-link">
+          <a href="https://www.youtube.com/@aodwp" target="_blank" class="social-link">
             <i class='bx bxl-youtube'></i>
           </a>
         </div>
@@ -463,6 +466,31 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
+
+    // Hamburger menu functionality
+    const menuIcon = document.getElementById('menu-icon');
+    const navbar = document.querySelector('.navbar');
+
+    if (menuIcon && navbar) {
+      menuIcon.onclick = () => {
+          menuIcon.classList.toggle('bx-x'); // Toggle between menu and close icon
+          navbar.classList.toggle('active'); // Toggle active class for navbar
+      };
+
+      // Close menu when a link is clicked (optional, but good for mobile UX)
+      navbar.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+              menuIcon.classList.remove('bx-x');
+              navbar.classList.remove('active');
+          });
+      });
+
+      // Close menu when scrolling (like your index.html)
+      window.onscroll = () => {
+          menuIcon.classList.remove('bx-x');
+          navbar.classList.remove('active');
+      };
+    }
   </script>
 </body>
 </html>
